@@ -13,13 +13,13 @@ async def reg_battle(battlers: list[SchemaUser]) -> str:
     battle_id = str(uuid.uuid4())
 
     database[battle_id] = battlers
-    
+
     return battle_id if await check_battle_id(battle_id) else "Ошибка создания битвы"
 
 
 async def game(battle_id):
     battlers = database[battle_id]
-    
+
     if battlers[0].power < battlers[1].power:
         winner_id = 1
     elif battlers[0].power > battlers[1].power:
@@ -31,7 +31,6 @@ async def game(battle_id):
         "id_game": battle_id,
         "winner": battlers[winner_id].name
     }
-    
 
 
 async def battle_result(battle_id):

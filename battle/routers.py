@@ -5,6 +5,7 @@ from typing import Annotated
 from .schemas import SchemaUser
 from .utils import reg_battle, battle_result
 
+
 battle = APIRouter(
     prefix="/battle"
 )
